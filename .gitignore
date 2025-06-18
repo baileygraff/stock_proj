@@ -1,0 +1,35 @@
+# General
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv/
+venv/
+
+# DBT
+dbt_modules/
+dbt_packages/
+target/
+logs/
+
+# Data files
+data/*.csv
+data/*.parquet
+*.duckdb
+*.db
+
+# Secrets
+.env
+.env.*
+secrets.yml
+profiles.yml
+
+# Jupyter
+.ipynb_checkpoints/
