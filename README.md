@@ -14,3 +14,4 @@ snowflake will be data warehousing tool in the future
 
 to do:
 - configuration mgmt for scripts 
+- setup script for project directory creation
