@@ -1,0 +1,30 @@
+name: stock_project
+version: '1.0'
+config-version: 2 #what is this?
+
+profile: stock_duckdbt #look more into this
+
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+script-paths: ["scripts"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_modules"
+  - "logs"
+
+#learn more about model options: node color (silver, gold, etc) //
+#materialized (view, table, ephemeral, etc)
+models:
+  stock_project:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: ephemeral
+    marts:
+      +materialized: table
