@@ -20,8 +20,8 @@ target/
 logs/
 
 # Data files
-data/*.csv
-data/*.parquet
+seeds/*.csv
+seeds/*.parquet
 *.duckdb
 *.db
 
