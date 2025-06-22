@@ -2,16 +2,19 @@ name: stock_project
 version: '1.0'
 config-version: 2 #what is this?
 
-profile: stock_duckdbt #look more into this
+profile: stock_proj_duckdbt #need to create this profile
 
 model-paths: ["models"]
 analysis-paths: ["analysis"]
+asset-paths: ["assets"]
 test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
-script-paths: ["scripts"]
 snapshot-paths: ["snapshots"]
 
+#to do: setup packages-install-path: directorypath?
+
+#are target-path and clean-targets necessary for my project?
 target-path: "target"
 clean-targets:
   - "target"
