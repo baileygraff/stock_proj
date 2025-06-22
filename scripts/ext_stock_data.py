@@ -2,28 +2,60 @@
 #extract data on stocks
 
 import pandas as pd
+import duckdb
 import kaggle
+import zipfile
+import io
 from pathlib import Path
 
-#list of desired kaggle datasets > to be controlled by  configuration controls later
-datasets = []
+#dictionary of desired kaggle datasets > to be controlled by  configuration controls later
+#datasets = {'umerhaddii/visa-stock-data-2024':'visa_stocks.csv', 'umerhaddii/google-stock-data-2024': 'GOOGL_2004-08-01_2024-12-18.csv', 'umerhaddii/oracle-stock-data-2024':'Oracle_stock.csv'}
 
-#function with Kaggle as intended seed (source)
-#get the data from kaggle > does this create json or csv?
-#plan = use a list as function input for target kaggle datasets?
+
+#plan = use a dictionary as function input for target kaggle datasets?
 #replace data if presented with duplicate set? > plan = yes
-def extract_init_kagdata(dataset_list, filepath="seeds"):
+def extract_init_kagdata(dataset_dict: dict, filepath="seeds"):
+    #function with Kaggle as intended seed (source)
     try:
         print("extracting datasets from list")  #consider making this a more specific/descriptive message
         kaggle.api.authenticate()   #kaggle api token needs to be setup
         data_destination = Path(filepath)     #double check the logic on this
-        for item in dataset_list:
-            kaggle.api.dataset_download_file(item, data_destination, unzip=True)
-            print(f"{item} dataset extracted to {data_destination} directory")
+        for key in dataset_dict:
+            target_dataset = str(key)
+            target_file = str(dataset_dict[key])   #select the value to the key, which is the dataset name
+            kaggle.api.dataset_download_file(target_dataset, target_file,data_destination, force=True)
+            print(f"{target_dataset} dataset extracted to {data_destination} directory")
     except Exception as e:
         print("Kaggle dataset extraction failed: ", e)
         #is there something to return that makes this fail in the most safe way?
 
+"""
+not working yet -- to be worked out later if possible
+def extract_kagg_duckdb(dataset_dict: dict, db_directory: str, filepath="seeds"):
+    #function to extract kaggle data to memory directly to duckdb, skipping csv download
+    api = kaggle.KaggleApi()
+    api.authenticate()
+
+    try:
+        for key in dataset_dict:
+
+            #download zip file from kaggle
+            target_dataset = str(key)  #select the key from the dict of datasets
+            target_file = str(dataset_dict[key]) #select the value from the dict of datasets
+            raw_data = api.dataset_download_file(target_dataset, file_name=target_file)
+            zip_data = zipfile.ZipFile(io.BytesIO(raw_data))
+
+            #extract csv file into memory as pandas dataframe
+            with zip_data.open(target_file) as f:
+                df = pd.read_csv(f)
+
+            return df
+            print(f"{df} loaded to memory as dataframe")
+    except:
+        raise
+"""
+
 
 ######testing area below###########
-extract_init_kagdata(datasets)
+#extract_init_kagdata(datasets)
+#Success!!!
