@@ -14,7 +14,7 @@ from pathlib import Path
 
 #plan = use a dictionary as function input for target kaggle datasets?
 #replace data if presented with duplicate set? > plan = yes
-def extract_init_kagdata(dataset_dict: dict, filepath="seeds"):
+def extract_init_kagdata(dataset_dict: dict, filepath="raw_data"):
     #function with Kaggle as intended seed (source)
     try:
         print("extracting datasets from list")  #consider making this a more specific/descriptive message

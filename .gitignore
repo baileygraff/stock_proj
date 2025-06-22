@@ -1,5 +1,6 @@
 # General
 *.log
+*.csv
 *.tmp
 *.bak
 *.swp

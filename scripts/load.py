@@ -3,7 +3,7 @@ import duckdb
 from pathlib import Path
 
 
-def load_csvs_to_rawdata(db_path: str, extracted_files: dict, file_dir: str = 'seeds'):
+def load_csvs_to_rawdata(db_path: str, extracted_files: dict, file_dir: str = 'raw_data'):
     #function for loading raw csv filedata to rawdata table in duckdb
     #note!!! > this does not currently prevent adding duplicate data.
     #note!!! > removing duplicates will be a first-priority cleanup task.

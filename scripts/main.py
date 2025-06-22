@@ -10,7 +10,7 @@ stock_dict = {
 }
 
 duckdb_path = "seeds/stock_projdb.duckdb"
-rawdata_path = "seeds"
+rawdata_path = "raw_data"
 
 #extract data from kaggle dataset files to seeds directory as csv of raw data
 xt.extract_init_kagdata(stock_dict, rawdata_path)
