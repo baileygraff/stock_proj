@@ -110,9 +110,9 @@ def load_csvs_to_rawdata(db_path: str, extracted_files: dict, file_dir: str = 'r
         except Exception as e:
             print(f"failed dedup insert for {csv_file}: {e}")
 
-    # Print row count for testing
-    row_count = conn.execute("SELECT COUNT(*) FROM raw_stockdata_all").fetchone()[0]
-    print(f"raw_stockdata_all row count: {row_count}")
+    # Print row count for testing > commented out when not testing
+    #row_count = conn.execute("SELECT COUNT(*) FROM raw_stockdata_all").fetchone()[0]
+    #print(f"raw_stockdata_all row count: {row_count}")
 
     conn.close()            
 

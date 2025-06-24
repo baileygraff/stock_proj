@@ -6,8 +6,8 @@ import load as ld
 stock_dict = {
     #key: {'kaggle/address': ['STOCK SYMBOL', 'dataset_filename.csv']}
     #some items might be commented out to test deduplication after loading
-    #'umerhaddii/visa-stock-data-2024': ['V','visa_stocks.csv'],
-    #'umerhaddii/google-stock-data-2024': ['GOOG','GOOGL_2004-08-01_2024-12-18.csv'],
+    'umerhaddii/visa-stock-data-2024': ['V','visa_stocks.csv'],
+    'umerhaddii/google-stock-data-2024': ['GOOG','GOOGL_2004-08-01_2024-12-18.csv'],
     'umerhaddii/oracle-stock-data-2024': ['ORCL', 'Oracle_stock.csv']
 }
 
