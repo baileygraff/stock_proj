@@ -21,7 +21,7 @@ clean-targets:
   - "dbt_modules"
   - "logs"
 
-#learn more about model options: node color (silver, gold, etc) //
+#learn more about model options:
 #materialized (view, table, ephemeral, etc)
 models:
   stock_project:
