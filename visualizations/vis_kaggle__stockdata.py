@@ -13,7 +13,7 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 
-def stockdata_vis(db_file: str, db_dir: str = "seeds"):
+def stockdata_vis_basic(db_file: str, db_dir: str = "seeds"):
     db_path = Path(db_dir)
     conn = duckdb.connect(database = db_path / db_file)
 
@@ -53,4 +53,4 @@ def stockdata_vis(db_file: str, db_dir: str = "seeds"):
 #testing area
 test_filename = 'stock_projdb.duckdb'
 test_dbpath = "seeds"
-stockdata_vis(test_filename, test_dbpath)
+stockdata_vis_basic(test_filename, test_dbpath)
