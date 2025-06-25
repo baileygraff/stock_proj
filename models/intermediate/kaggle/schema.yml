@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: int_kaggle__stockdata
+    description: >
+      Intermediate transformations for stockdata sourced from kaggle datasets.
+      Transformations include calculation of daily change, and daily percent change.
+
+    columns:
+      - name: date
+        description: date of the stock record
+        tests:
+          - not_null
+
+      - name: stock
+        description: stock symbol
+        tests:
+          - not_null
+
+      - name: open
+        description: opening price for the day
+        
+      - name: close
+        description: closing price for the day
+
+      - name: daily_change
+        description: raw difference between close and open
+        tests:
+          - not_null
+
+      - name: pct_change_day
+        description: daily change percent, calculated as ((close - open) / open) * 100
+        tests:
+          - not_null

@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: mrt_kaggle__stock_perform
+    description: >
+      summary mart showing lifetime percent change for each stock and performance rank.
+
+    columns:
+      - name: stock
+        description: stock symbol
+        tests:
+          - not_null
+          - unique
+
+      - name: first_open
+        description: first recorded opening price
+
+      - name: last_close
+        description: most recent closing price
+
+      - name: raw_stock_perf
+        description: raw difference between last close and first open
+      
+      - name: pct_change_lifetime
+        description: percentage change from first_open to last_close
+
+      - name: performance_rank
+        description: rank of the stock based on lifetime percent change (higher is better)
