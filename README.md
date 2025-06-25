@@ -9,6 +9,7 @@ seeds (planned):
 - kaggle datasets ("stonks" collection)
 
 notes:
+- using DBeaver as lightweight gui for now
 snowflake will be data warehousing tool in the future
 - keep in mind how this will change future work.
 
