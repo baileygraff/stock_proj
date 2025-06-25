@@ -61,6 +61,10 @@ def load_csvs_to_rawdata(db_path: str, extracted_files: dict, file_dir: str = 'r
     #note!!! > this does not currently prevent adding duplicate data.
     #note!!! > removing duplicates will be a first-priority cleanup task.
 
+    # Ensure the directory for the DuckDB file exists
+    db_path_obj = Path(db_path)
+    db_path_obj.parent.mkdir(parents=True, exist_ok=True)
+
     conn = duckdb.connect(db_path)
     raw_data_path = Path(file_dir)
 
