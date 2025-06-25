@@ -1,8 +1,8 @@
 name: stock_project
 version: '1.0'
-config-version: 2 #what is this?
+config-version: 2 
 
-profile: stock_proj_duckdbt #need to create this profile
+profile: stock_proj_duckdbt 
 
 model-paths: ["models"]
 analysis-paths: ["analysis"]
@@ -12,13 +12,13 @@ seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
-#to do: setup packages-install-path: directorypath?
+#to do: setup packages-install-path: directory_path? 
+#set up docs-path, log-path?
 
-#are target-path and clean-targets necessary for my project?
-target-path: "target"
-clean-targets:
+target-path: "target" #where compiled SQL and outputs go
+clean-targets: #folders to delete when 'dbt clean' runs
   - "target"
-  - "dbt_modules"
+  - "dbt_packages"
   - "logs"
 
 #learn more about model options:
