@@ -28,3 +28,4 @@ to do:
 - building out mechanism for building selection of target stock data
 - setup script for project directory creation?
 - implement dagster (or similar) for orchestration
+- explore DCD and PubSub
